@@ -42,30 +42,30 @@ function createTable(day) {
   const table = document.createElement("table");
   const dayPlayers = players[day] || [];
 
-  // Entête
+  // Entête : on met les rowPlayers en haut (colonnes)
   const header = document.createElement("tr");
-  header.appendChild(document.createElement("th"));
-  dayPlayers.forEach(p => {
+  header.appendChild(document.createElement("th")); // coin vide
+  dayPlayers.forEach(rowPlayer => {
     const th = document.createElement("th");
-    th.textContent = p;
+    th.textContent = rowPlayer;
     header.appendChild(th);
   });
   table.appendChild(header);
 
-  // Corps
-  dayPlayers.forEach(rowPlayer => {
+  // Corps : lignes = colPlayers, colonnes = rowPlayers
+  dayPlayers.forEach(colPlayer => {
     const row = document.createElement("tr");
     const th = document.createElement("th");
-    th.textContent = rowPlayer;
+    th.textContent = colPlayer;
     row.appendChild(th);
 
-    dayPlayers.forEach(colPlayer => {
+    dayPlayers.forEach(rowPlayer => {
       const td = document.createElement("td");
       if (rowPlayer === colPlayer) {
         td.textContent = "—";
         td.classList.add("diagonal");
       } else {
-        const result = results[day]?.[colPlayer]?.[rowPlayer] || "";
+        const result = results[day]?.[rowPlayer]?.[colPlayer] || "";
         td.textContent = result;
         switch (result) {
           case "1-0":      td.classList.add("result-win");  break;
@@ -81,24 +81,4 @@ function createTable(day) {
   });
 
   return table;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector("#day1 .table-container");
-  container.appendChild(createTable(1));
-});
-
-function showDay(day) {
-  document.querySelectorAll(".tab-button").forEach((btn, index) => {
-    btn.classList.toggle("active", index === day - 1);
-  });
-
-  document.querySelectorAll(".tab-content").forEach((tab, index) => {
-    tab.classList.toggle("active", index === day - 1);
-  });
-
-  const container = document.querySelector(`#day${day} .table-container`);
-  if (!container.querySelector("table")) {
-    container.appendChild(createTable(day));
-  }
 }
