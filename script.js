@@ -21,7 +21,7 @@ const results = {
     "Nevender": { "darkdust": "0-1", "SezTy": "1-0", "darkness": "0-1", "penguin": "0-1", "444_ma..li": "0-1", "Draco": "0-1", "pointriangle": "0-1", "cripie333": "1-0", "champion93300": "1-0" },
     "Draco": { "darkness": "0-1", "Nevender": "0-1", "Mimo": "1-0", "pointriangle": "1-0", "Fyn": "1-0" },
     "Mimo": { "Draco": "0-1" },
-    "pointriangle": { "darkdust": "0-1", "SezTy": "0-1", "darkness": "0-1", "Bendospeed9": "1-0", "penguin": "0-1", "444_ma..li": "1-0", "Nevender": "1-0", "Draco": "1-0", "quentin59279": "1-0" },
+    "pointriangle": { "darkdust": "1-0", "SezTy": "1-0", "darkness": "1-0", "Bendospeed9": "1-0", "penguin": "0-1", "444_ma..li": "1-0", "Nevender": "1-0", "Draco": "1-0", "quentin59279": "1-0" },
     "quentin59279": { "Bendospeed9": "1-0", "pointriangle": "0-1" },
     "yoyo1406_": { "444_ma..li": "N/A" },
     "Fyn": { "darkness": "0-1", "penguin": "0-1", "Draco": "0-1" },
