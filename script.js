@@ -42,24 +42,24 @@ function createTable(day) {
   const table = document.createElement("table");
   const dayPlayers = players[day] || [];
 
-  // Entête : on met les rowPlayers en haut (colonnes)
+  // Entête avec les colonnes (adversaires)
   const header = document.createElement("tr");
-  header.appendChild(document.createElement("th")); // coin vide
-  dayPlayers.forEach(rowPlayer => {
+  header.appendChild(document.createElement("th"));
+  dayPlayers.forEach(colPlayer => {
     const th = document.createElement("th");
-    th.textContent = rowPlayer;
+    th.textContent = colPlayer;
     header.appendChild(th);
   });
   table.appendChild(header);
 
-  // Corps : lignes = colPlayers, colonnes = rowPlayers
-  dayPlayers.forEach(colPlayer => {
+  // Lignes = joueurs, Colonnes = adversaires
+  dayPlayers.forEach(rowPlayer => {
     const row = document.createElement("tr");
     const th = document.createElement("th");
-    th.textContent = colPlayer;
+    th.textContent = rowPlayer;
     row.appendChild(th);
 
-    dayPlayers.forEach(rowPlayer => {
+    dayPlayers.forEach(colPlayer => {
       const td = document.createElement("td");
       if (rowPlayer === colPlayer) {
         td.textContent = "—";
@@ -68,10 +68,10 @@ function createTable(day) {
         const result = results[day]?.[rowPlayer]?.[colPlayer] || "";
         td.textContent = result;
         switch (result) {
-          case "1-0":      td.classList.add("result-win");  break;
-          case "0-1":      td.classList.add("result-loss"); break;
-          case "½-½":      td.classList.add("result-draw"); break;
-          case "N/A":      td.classList.add("result-na");   break;
+          case "1-0": td.classList.add("result-win"); break;
+          case "0-1": td.classList.add("result-loss"); break;
+          case "½-½": td.classList.add("result-draw"); break;
+          case "N/A": td.classList.add("result-na"); break;
         }
       }
       row.appendChild(td);
