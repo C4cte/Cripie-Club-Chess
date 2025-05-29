@@ -97,7 +97,7 @@ function showDay(day) {
     tab.classList.toggle("active", index === day - 1);
   });
 
-  const container = document.querySelector(#day${day} .table-container);
+  const container = document.querySelector(`#day${day} .table-container`);
   if (!container.querySelector("table")) {
     container.appendChild(createTable(day));
   }
